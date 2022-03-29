@@ -16,7 +16,7 @@ const state = {
 // for debugging purposes.
 const mutations = {
   increment(state) {
-    console.log("using store.js!");
+    console.log("using store.js!@ mutation");
     state.count++
   },
   decrement(state) {
@@ -29,8 +29,8 @@ const mutations = {
 // asynchronous operations.
 const actions = {
   increment: ({ commit }) => {
+    console.log("using store.js!@ actions");
     commit('increment');
-    console.log("using store.js!");
   },
   decrement: ({ commit }) => {
     commit('decrement');
