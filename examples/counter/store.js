@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { createDependency } from 'webpack/lib/SingleEntryPlugin'
 
 Vue.use(Vuex)
 
@@ -55,7 +56,14 @@ const actions = {
 
 // getters are functions.
 const getters = {
-  evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd'
+  // evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd',
+  watchSample: state => state,
+}
+
+const watch ={
+  count:function(){
+    console.log("change!!");
+  }
 }
 
 // A Vuex instance is created by combining the state, mutations, actions,
@@ -64,5 +72,6 @@ export default new Vuex.Store({
   state,
   getters,
   actions,
-  mutations
+  mutations,
+  watch
 })
