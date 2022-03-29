@@ -3,11 +3,6 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-// const data={
-// a:0
-
-// }
-
 // root state object.
 // each Vuex instance is just a single state tree.
 const state = {
@@ -62,21 +57,8 @@ const actions = {
 // getters are functions.
 const getters = {
   evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd',
-  sampleList: state => state.count,
+  onCountChanged: state => state.count,
 }
-
-// const watch = {
-//   // a:function(val,oldVal){
-//   //   console.log(`${oldVal} => ${val}`);
-//   // },
-//   state: {
-//     handler: function (val, oldVal) {
-//       console.log("changed!!");
-//       console.log(`${oldVal} => ${val}`);
-//     },
-//     deep:true
-//   },
-// }
 
 // A Vuex instance is created by combining the state, mutations, actions,
 // and getters.
@@ -85,6 +67,4 @@ export default new Vuex.Store({
   getters,
   actions,
   mutations,
-  // watch,
-  // data
 })

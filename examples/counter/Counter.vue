@@ -17,20 +17,10 @@ import { mapGetters, mapActions } from 'vuex'
 import Counter2 from '../counter2/Counter2.vue'
 
 export default {
-  // mounted() {
-  //   this.store.watch(
-  //      (state, getters) => {},
-  //     (newValue, oldValue) => {
-  //       console.log("!!!!!!!!!!!!!!!");
-  //       console.log('changed! %s => %s', oldValue, newValue);
-  //     }
-  //   );
-    
-  // },
   components: { Counter2 },
   computed: mapGetters([
     'evenOrOdd',
-    'sampleList'
+    'onCountChanged'
   ]),
   methods: mapActions([
     'increment',
@@ -39,7 +29,7 @@ export default {
     'incrementAsync'
   ]),
   watch:{
-    sampleList(value,oldValue){
+    onCountChanged(value,oldValue){
       console.log(`changed:${oldValue}=>${value}`);
     }
   }
