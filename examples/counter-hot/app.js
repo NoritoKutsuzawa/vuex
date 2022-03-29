@@ -1,6 +1,5 @@
 import Vue from 'vue'
-// import store from './store'
-import store from '../counter/store'
+import store from './store'
 import CounterControls from './CounterControls.vue'
 
 new Vue({
