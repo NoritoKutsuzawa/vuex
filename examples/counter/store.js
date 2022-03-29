@@ -62,8 +62,9 @@ const actions = {
 const getters = {
   evenOrOdd: state => state.count % 2 === 0 ? 'even' : 'odd',
   onCountChanged: state => state.count,
-  onStateChanged: state => state.countStatus,
-  onCountInStateChanged: state => state.countStatus.count,
+  onStateChanged: state => state,
+  onNestedStatusChanged: state => state.countStatus,
+  onNestedCountChanged: state => state.countStatus.count,
 }
 
 // A Vuex instance is created by combining the state, mutations, actions,

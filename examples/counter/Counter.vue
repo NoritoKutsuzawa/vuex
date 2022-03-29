@@ -23,7 +23,8 @@ export default {
     'evenOrOdd',
     'onCountChanged',
     'onStateChanged',
-    'onCountInStateChanged',
+    'onNestedStatusChanged',
+    'onNestedCountChanged',
   ]),
   methods: mapActions([
     'increment',
@@ -33,13 +34,22 @@ export default {
   ]),
   watch:{
     onCountChanged(value,oldValue){
-      console.log(`changed:${oldValue}=>${value}`);
+      console.log(`changed:count:${oldValue}=>${value}`);
     },
-    onStateChanged(value,oldValue){
-      console.log(`changed-state:${oldValue}=>${value}`);
+    onStateChanged:{
+      handler(value,oldValue){
+        console.log("changed:state:",oldValue.count,"=>",value.count);
+      },
+      deep:true
     },
-    onCountInStateChanged(value,oldValue){
-      console.log(`changed-count in state:${oldValue}=>${value}`);
+    onNestedStatusChanged:{
+      handler(value,oldValue){
+        console.log("changed:nested-status:",oldValue.count,"=>",value.count);
+      },
+      deep:true
+    },
+    onNestedCountChanged(value,oldValue){
+      console.log(`changed:nested-count:${oldValue}=>${value}`);
     },
   },
 
