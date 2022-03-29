@@ -16,9 +16,11 @@ const state = {
 // for debugging purposes.
 const mutations = {
   increment(state) {
+    console.log("using store.js!");
     state.count++
   },
   decrement(state) {
+    console.log("using store.js!");
     state.count--
   }
 }
