@@ -15,10 +15,10 @@ const state = {
 // mutations must be synchronous and can be recorded by plugins
 // for debugging purposes.
 const mutations = {
-  increment (state) {
+  increment(state) {
     state.count++
   },
-  decrement (state) {
+  decrement(state) {
     state.count--
   }
 }
@@ -26,17 +26,25 @@ const mutations = {
 // actions are functions that cause side effects and can involve
 // asynchronous operations.
 const actions = {
-  increment: ({ commit }) => commit('increment'),
-  decrement: ({ commit }) => commit('decrement'),
-  incrementIfOdd ({ commit, state }) {
+  increment: ({ commit }) => {
+    commit('increment');
+    console.log("using store.js!");
+  },
+  decrement: ({ commit }) => {
+    commit('decrement');
+    console.log("using store.js!");
+  },
+  incrementIfOdd({ commit, state }) {
     if ((state.count + 1) % 2 === 0) {
-      commit('increment')
+      commit('increment');
+      console.log("using store.js!");
     }
   },
-  incrementAsync ({ commit }) {
+  incrementAsync({ commit }) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         commit('increment')
+        console.log("using store.js!");
         resolve()
       }, 1000)
     })
